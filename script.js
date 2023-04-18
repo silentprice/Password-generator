@@ -58,6 +58,33 @@ function generatePassword() {
   }
   console.log(tempChars);
 
+  while (!wantsUpper && !wantsLower && !wantsNumbers && !wantsSpecial) {
+    alert("You must choose at least one type of character")
+    wantsUpper = confirm("Would you like uppercase?");
+    if (wantsUpper) {
+      tempChars += uppercase;
+    }
+    console.log(tempChars);
+  
+    wantsLower = confirm("Would you like lowercase?");
+    if (wantsLower) {
+      tempChars += lowercase;
+    }
+    console.log(tempChars);
+  
+    wantsNumbers = confirm("Would you like numbers?");
+    if (wantsNumbers) {
+      tempChars += numbers;
+    }
+    console.log(tempChars);
+  
+    wantsSpecial = confirm("Would you like special characters?");
+    if (wantsSpecial) {
+      tempChars += specials;
+    }
+    console.log(tempChars);
+  }
+
   return pw;
 }
 
