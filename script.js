@@ -15,16 +15,50 @@ var generateBtn = document.querySelector("#generate");
 //   return password;
 // }
 
+var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var lowercase = "abcdefghijklmnopqrstuvwxyz";
+var numbers = "0123456789";
+var specials = "!@#$%^&*()_+~`|}{[]:;?><,./-=";
+
 function generatePassword() {
-  var pw = ""
+  var pw = "";
+  var tempChars = "";
 
   var numberOfCharacters = prompt("How many characters in the password?");
-  while(numberOfCharacters < 8 || numberOfCharacters > 128 || isNaN(numberOfCharacters)) {
-    alert("Your password must be a number between 8 and 128 characters long")
+  while (
+    numberOfCharacters < 8 ||
+    numberOfCharacters > 128 ||
+    isNaN(numberOfCharacters)
+  ) {
+    alert("Your password must be a number between 8 and 128 characters long");
     numberOfCharacters = prompt("How many characters in the password?");
   }
 
-  return pw
+  var wantsUpper = confirm("Would you like uppercase?");
+  if (wantsUpper) {
+    tempChars += uppercase;
+  }
+  console.log(tempChars);
+
+  var wantsLower = confirm("Would you like lowercase?");
+  if (wantsLower) {
+    tempChars += lowercase;
+  }
+  console.log(tempChars);
+
+  var wantsNumbers = confirm("Would you like numbers?");
+  if (wantsNumbers) {
+    tempChars += numbers;
+  }
+  console.log(tempChars);
+
+  var wantsSpecial = confirm("Would you like special characters?");
+  if (wantsSpecial) {
+    tempChars += specials;
+  }
+  console.log(tempChars);
+
+  return pw;
 }
 
 // Write password to the #password input
