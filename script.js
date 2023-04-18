@@ -85,7 +85,7 @@ function generatePassword() {
     }
     console.log(tempChars);
   }
-
+// created for loop to keep generating random characters depending on user choice
   for (var i = 0; i < numberOfCharacters; i++) {
     pw += tempChars.charAt(Math.floor(Math.random() * tempChars.length))
   }
