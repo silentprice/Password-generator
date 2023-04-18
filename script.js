@@ -14,7 +14,7 @@ var generateBtn = document.querySelector("#generate");
 //   }
 //   return password;
 // }
-
+// broke down the characters individually incase user does not want one applied
 var uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lowercase = "abcdefghijklmnopqrstuvwxyz";
 var numbers = "0123456789";
@@ -59,30 +59,34 @@ function generatePassword() {
   console.log(tempChars);
 
   while (!wantsUpper && !wantsLower && !wantsNumbers && !wantsSpecial) {
-    alert("You must choose at least one type of character")
+    alert("You must choose at least one type of character");
     wantsUpper = confirm("Would you like uppercase?");
     if (wantsUpper) {
       tempChars += uppercase;
     }
     console.log(tempChars);
-  
+
     wantsLower = confirm("Would you like lowercase?");
     if (wantsLower) {
       tempChars += lowercase;
     }
     console.log(tempChars);
-  
+
     wantsNumbers = confirm("Would you like numbers?");
     if (wantsNumbers) {
       tempChars += numbers;
     }
     console.log(tempChars);
-  
+
     wantsSpecial = confirm("Would you like special characters?");
     if (wantsSpecial) {
       tempChars += specials;
     }
     console.log(tempChars);
+  }
+
+  for (var i = 0; i < numberOfCharacters; i++) {
+    pw += tempChars.charAt(Math.floor(Math.random() * tempChars.length))
   }
 
   return pw;
